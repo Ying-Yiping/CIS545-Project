@@ -2,6 +2,8 @@
 layout: default
 altair-loader:
   altair-chart-1: "charts/measlesAltair.json"
+  altair-chart-2: "charts/Philly_mode_income.json"
+  altair-chart-3: "charts/Philly_mode_age.json"
 hv-loader:
   hv-chart-1: ["charts/measlesHvplot.html", "500"] # second argument is the desired height
 folium-loader:
@@ -29,9 +31,25 @@ This section will show examples of embedding interactive charts produced using [
 
 # II. Exploratory Data Analysis
 
+## 2.1 
+
+## 2.2 Feature Engineering
+
+### 2.2.1 Internal Characteristics
+
+### 2.2.2 Census demographic data
+
+Below is a chart of Median Income vs Transit Mode Selection in Philadelphia.
+
+<div id="altair-chart-2"></div>
+
+Below is a chart of Median Age vs Transit Mode Selection in Philadelphia.
+
+<div id="altair-chart-3"></div>
+
 ## Altair Example
 
-Below is a chart of the incidence of measles since 1928 for the 50 US states.
+Below is a chart of Median Income vs Transit Mode Selection in Philadelphia.
 
 <div id="altair-chart-1"></div>
 
