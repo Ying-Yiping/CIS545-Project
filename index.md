@@ -11,7 +11,9 @@ folium-loader:
 
 # Welcome!
 
-This single-page website demos is used to display our final project for [CIS 5450](https://sites.google.com/seas.upenn.edu/cis545/home).
+We are Yiping Ying, Ying Xu, Troy Yang, a group from [CIS 5450](https://sites.google.com/seas.upenn.edu/cis545/home), Spring 2023.
+
+This website is used to display our final project for this course.
 
 # I. Motivation
 
@@ -21,9 +23,11 @@ The problem of re-balancing arises because the number of shared bicycles is not 
 
 In general, there are two steps in truck-based rebalancing approaches, i.e., demand prediction and station rebalancing. First, it is crucial to accurately predict the demand at each station to foresee the bike and dock availability in the future. Second, it is important to design effective strategies for truck operators to reposition bikes among stations.
 
-This project will focus on the first step of the problem by taking Indego, a bike-sharing system in the Philadelphia area, as a research sample, on which we will use different models (OLS, ARIMA, Neural Networks, etc.) to make accurate demand forecasts. Indego started operation on April 23, 2015, with 125 stations and 1,000 bicycles. After 7 years of development, the function of this system has tended to be comprehensive, which is appropriate for research. In this analysis, we select a 5-week period from May 17 to June 20, 2021 for temporal/spatial analysis.
+This project will focus on the first step of the problem by taking [Indego](https://www.rideindego.com/), a bike-sharing system in the Philadelphia area, as a research sample, on which we will use different models (OLS, ARIMA, Neural Networks, etc.) to make accurate demand forecasts. Indego started operation on April 23, 2015, with 125 stations and 1,000 bicycles. After 7 years of development, the function of this system has tended to be comprehensive, which is appropriate for research. In this analysis, we select a 5-week period from **May 17** to **June 20**, **2021** for temporal/spatial analysis.
 
 This section will show examples of embedding interactive charts produced using [Altair](https://altair-viz.github.io) and [Hvplot](https://hvplot.pyviz.org/).
+
+# II. Exploratory Data Analysis
 
 ## Altair Example
 
