@@ -81,11 +81,7 @@ In this part, we check the spatial characteristics in the following categories:
 
 ![fig6]({{ site.url }}{{ site.baseurl }}/assets/img/fig6.png)
 
-- Number of Start Trips in Each Station, Philadelphia 2021
-
-![fig7]({{ site.url }}{{ site.baseurl }}/assets/img/fig7.png)
-
-Below are the scatter plots of the stations, we can see that they are clustered around the center city.
+Below are the scatter plots of the stations, we can see that they are clustered around the center city. As for the trips, a station tend to have almost the same number of start and end trips, given the high similarity shown in the plots.
 
 <div id="hv-chart-3"></div>
 
