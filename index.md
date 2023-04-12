@@ -5,6 +5,7 @@ altair-loader:
   altair-chart-2: "charts/Philly_mode_income.json"
   altair-chart-3: "charts/Philly_mode_age.json"
   altair-chart-4: "charts/station_docks.json"
+  altair-chart-5: "charts/Start_trips.json"
 hv-loader:
   hv-chart-1: ["charts/measlesHvplot.html", "500"] # second argument is the desired height
 folium-loader:
@@ -81,6 +82,12 @@ In this part, we check the spatial characteristics in the following categories:
 ![fig6]({{ site.url }}{{ site.baseurl }}/assets/img/fig6.png)
 
 <div id="altair-chart-4"></div>
+
+- Number of Start Trips in Each Station, Philadelphia 2021
+
+![fig7]({{ site.url }}{{ site.baseurl }}/assets/img/fig7.png)
+
+<div id="altair-chart-5"></div>
 
 ### 2.2.2 Census demographic data
 
