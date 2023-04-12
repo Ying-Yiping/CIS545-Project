@@ -103,13 +103,39 @@ Below are the scatter plots of the stations, we can see that they are clustered 
 
 Add two new features:
 
-1. Distances to the nearest 10 restaurants from Open Street Map;
+1. Distances to the nearest **10 restaurants** from [Open Street Map](https://wiki.openstreetmap.org/wiki/Map_Features);
 
 2. Whether the station is located within Center City.
 
 - Mean Distance to Nearest 10 Restaurants (log transformed)
 
 ![fig8]({{ site.url }}{{ site.baseurl }}/assets/img/fig8.png)
+
+### 2.2.4 Transportation Network
+
+Add a feature that calculates the distance to the nearest intersections.
+
+- Intersections
+
+![fig9]({{ site.url }}{{ site.baseurl }}/assets/img/fig9.png)
+
+- Mean Distance to Nearest 3 Intersections (log transformed)
+
+![fig10]({{ site.url }}{{ site.baseurl }}/assets/img/fig10.png)
+
+### 2.2.5 Neighboring Stations
+
+- **Spatial Lag**: a feature that encodes the fact that demand for a specific station is likely related to the demand in neighboring stations.
+
+We add two new features:
+
+1. The average distance to the nearest 5 stations
+
+2. The average trip total for the nearest 5 stations
+
+- Mean Distance to Nearest 5 Stations (log transformed)
+
+![fig11]({{ site.url }}{{ site.baseurl }}/assets/img/fig11.png)
 
 ## Altair Example
 
