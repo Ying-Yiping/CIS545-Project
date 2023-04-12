@@ -6,8 +6,8 @@ altair-loader:
   altair-chart-3: "charts/Philly_mode_age.json"
 hv-loader:
   hv-chart-1: ["charts/measlesHvplot.html", "500"] # second argument is the desired height
-  hv-chart-2: ["charts/tabs.html", "600"]
-  hv-chart-3: ["charts/tabs0.html", "600"]
+  hv-chart-2: ["charts/tabs.html", "500"]
+  hv-chart-3: ["charts/tabs0.html", "500"]
 folium-loader:
   folium-chart-1: ["charts/foliumChart.html", "400"] # second argument is the desired height
   folium-chart-2: ["charts/percent_no_internet.html", "400"] # second argument is the desired height
