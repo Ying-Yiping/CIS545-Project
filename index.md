@@ -141,6 +141,10 @@ We add two new features:
 
 ![fig12]({{ site.url }}{{ site.baseurl }}/assets/img/fig12.png)
 
+### 2.2.6 Correlation Matrix
+
+![fig13]({{ site.url }}{{ site.baseurl }}/assets/img/fig13.png)
+
 ## Altair Example
 
 Below is a chart of Median Income vs Transit Mode Selection in Philadelphia.
