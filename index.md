@@ -4,6 +4,7 @@ altair-loader:
   altair-chart-1: "charts/measlesAltair.json"
   altair-chart-2: "charts/Philly_mode_income.json"
   altair-chart-3: "charts/Philly_mode_age.json"
+  altair-chart-4: "charts/station_docks.json"
 hv-loader:
   hv-chart-1: ["charts/measlesHvplot.html", "500"] # second argument is the desired height
 folium-loader:
@@ -51,7 +52,35 @@ For weekends and weekdays, the trends of rides in the day are almost the same, w
 
 ## 2.2 Spatial Pattern
 
+In this part, we check the spatial characteristics in the following categories:
+
+- **Internal**
+
+  - e.g., the number of docks per station;
+
+- **Demographic (Census)**
+
+  - e.g., population, income, percent commuting by car, percent with bachelor's degree or higher, etc.
+
+- **Amenities/Disamenities**
+
+  - e.g., distance to nearest restaurants, parks, within Center City, etc
+
+- **Transportation network**
+
+  - e.g., distance to nearest bus stop, interesection nodes, nearest subway stop
+
+- **Neighboring stations**
+
+  - e.g., average trips of nearest stations, distance to nearest stations
+
 ### 2.2.1 Internal Characteristics
+
+- Number of Docks in Each Station, Philadelphia 2021
+
+![fig6]({{ site.url }}{{ site.baseurl }}/assets/img/fig6.png)
+
+<div id="altair-chart-4"></div>
 
 ### 2.2.2 Census demographic data
 
