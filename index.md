@@ -6,10 +6,9 @@ altair-loader:
   altair-chart-3: "charts/Philly_mode_age.json"
   altair-chart-4: "charts/station_docks.json"
   altair-chart-5: "charts/Start_trips.json"
-altair-html:
-  altair-html-1: ["charts/tabs.html", "500"]
 hv-loader:
   hv-chart-1: ["charts/measlesHvplot.html", "500"] # second argument is the desired height
+  hv-chart-2: ["charts/tabs.html", "500"]
 folium-loader:
   folium-chart-1: ["charts/foliumChart.html", "400"] # second argument is the desired height
   folium-chart-2: ["charts/percent_no_internet.html", "400"] # second argument is the desired height
@@ -101,7 +100,7 @@ Below is a chart of Median Age vs Transit Mode Selection in Philadelphia.
 
 <div id="altair-chart-3"></div>
 
-<div id="altair-html-1"></div>
+<div id="hv-chart-2"></div>
 
 ## Altair Example
 
