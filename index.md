@@ -85,6 +85,8 @@ In this part, we check the spatial characteristics in the following categories:
 
 ![fig7]({{ site.url }}{{ site.baseurl }}/assets/img/fig7.png)
 
+Below are the scatter plots of the stations, we can see that they are clustered around the center city.
+
 <div id="hv-chart-3"></div>
 
 ### 2.2.2 Census demographic data
