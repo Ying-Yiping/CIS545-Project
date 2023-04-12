@@ -81,11 +81,11 @@ In this part, we check the spatial characteristics in the following categories:
 
 ![fig6]({{ site.url }}{{ site.baseurl }}/assets/img/fig6.png)
 
-<div id="altair-chart-4"></div>
-
 - Number of Start Trips in Each Station, Philadelphia 2021
 
 ![fig7]({{ site.url }}{{ site.baseurl }}/assets/img/fig7.png)
+
+<div id="altair-chart-4"></div>
 
 <div id="altair-chart-5"></div>
 
