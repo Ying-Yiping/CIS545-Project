@@ -50,25 +50,15 @@ For weekends and weekdays, the trends of rides in the day are almost the same, w
 
 In this part, we check the spatial characteristics in the following categories:
 
-- **Internal**
-
-  - e.g., the number of docks per station;
+- **Internal Characteristics**
 
 - **Demographic (Census)**
 
-  - e.g., population, income, percent commuting by car, percent with bachelor's degree or higher, etc.
-
 - **Amenities/Disamenities**
-
-  - e.g., distance to nearest restaurants, parks, within Center City, etc
 
 - **Transportation network**
 
-  - e.g., distance to nearest bus stop, interesection nodes, nearest subway stop
-
 - **Neighboring stations**
-
-  - e.g., average trips of nearest stations, distance to nearest stations
 
 ### 2.2.1 Internal Characteristics
 
