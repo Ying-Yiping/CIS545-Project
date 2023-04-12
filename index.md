@@ -1,5 +1,8 @@
 ---
 layout: default
+altair-loader:
+  altair-chart-2: "charts/Philly_mode_income.json"
+  altair-chart-3: "charts/Philly_mode_age.json"
 hv-loader:
   hv-chart-2: ["charts/tabs.html", "500"]
   hv-chart-3: ["charts/tabs0.html", "500"]
