@@ -99,6 +99,18 @@ Below are the scatter plots of the stations, we can see that they are clustered 
 
 <div id="altair-chart-3"></div>
 
+### 2.2.3 Amenities/Disamenities
+
+Add two new features:
+
+1. Distances to the nearest 10 restaurants from Open Street Map;
+
+2. Whether the station is located within Center City.
+
+- Mean Distance to Nearest 10 Restaurants (log transformed)
+
+![fig8]({{ site.url }}{{ site.baseurl }}/assets/img/fig8.png)
+
 ## Altair Example
 
 Below is a chart of Median Income vs Transit Mode Selection in Philadelphia.
