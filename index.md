@@ -133,9 +133,13 @@ We add two new features:
 
 2. The average trip total for the nearest 5 stations
 
-- Mean Distance to Nearest 5 Stations (log transformed)
+- ***Plot***: Mean Distance to Nearest 5 Stations (log transformed)
 
 ![fig11]({{ site.url }}{{ site.baseurl }}/assets/img/fig11.png)
+
+- **Check the correlation between the trip counts and the spatial lag**
+
+![fig12]({{ site.url }}{{ site.baseurl }}/assets/img/fig12.png)
 
 ## Altair Example
 
