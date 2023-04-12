@@ -33,21 +33,21 @@ This section will show examples of embedding interactive charts produced using [
 
 ## 2.1 Temporal Pattern
 
-![fig1]({{ site.url }}{{ site.baseurl }}/assets/images/fig1.png)
+![fig1]({{ site.url }}{{ site.baseurl }}/assets/img/fig1.png)
 
 There is clearly a daily periodicity and there are lull periods on weekends. Notice that the weekend near the 31st of May (Memorial Day) doesn’t have the same dip in activity.
 
-![fig2]({{ site.url }}{{ site.baseurl }}/assets/images/fig2.png)
+![fig2]({{ site.url }}{{ site.baseurl }}/assets/img/fig2.png)
 
 From the morning, the number of rides gradually increases, and as we can see, the number peaks in the late afternoon (16-18), this may be attributed to the evening rush in Philadelphia, the number falls quickly. 
 
-![fig3]({{ site.url }}{{ site.baseurl }}/assets/images/fig3.png)
+![fig3]({{ site.url }}{{ site.baseurl }}/assets/img/fig3.png)
 
 For weekends and weekdays, the trends of rides in the day are almost the same, while the rides in the daytime (5-18) on the weekends are much less than that on the weekdays.
 
-![fig4]({{ site.url }}{{ site.baseurl }}/assets/images/fig4.png)
+![fig4]({{ site.url }}{{ site.baseurl }}/assets/img/fig4.png)
 
-![fig5]({{ site.url }}{{ site.baseurl }}/assets/images/fig5.png)
+![fig5]({{ site.url }}{{ site.baseurl }}/assets/img/fig5.png)
 
 ## 2.2 Spatial Pattern
 
