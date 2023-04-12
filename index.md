@@ -89,15 +89,17 @@ In this part, we check the spatial characteristics in the following categories:
 
 ### 2.2.2 Census demographic data
 
-Below is a chart of Median Income vs Transit Mode Selection in Philadelphia.
+- Choropleth of Social/Economical Features
+
+<div id="hv-chart-2"></div>
+
+- Chart of Median Income vs Transit Mode Selection in Philadelphia.
 
 <div id="altair-chart-2"></div>
 
-Below is a chart of Median Age vs Transit Mode Selection in Philadelphia.
+- Chart of Median Age vs Transit Mode Selection in Philadelphia.
 
 <div id="altair-chart-3"></div>
-
-<div id="hv-chart-2"></div>
 
 ## Altair Example
 
