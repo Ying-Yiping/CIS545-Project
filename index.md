@@ -24,7 +24,7 @@ In general, there are two steps in truck-based rebalancing approaches, i.e., dem
 
 This project will focus on the first step of the problem by taking [***Indego***](https://www.rideindego.com/), a bike-sharing system in the Philadelphia area, as a research sample, on which we will use different models (OLS, ARIMA, Neural Networks, etc.) to make accurate demand forecasts. Indego started operation on April 23, 2015, with 125 stations and 1,000 bicycles. After 7 years of development, the function of this system has tended to be comprehensive, which is appropriate for research. In this analysis, we select a **5-week** period from **May 17** to **June 20**, **2021** for temporal/spatial analysis.
 
-This section will show examples of embedding interactive charts produced using [Altair](https://altair-viz.github.io) and [Hvplot](https://hvplot.pyviz.org/).
+This section will show embedding interactive charts produced using [Altair](https://altair-viz.github.io) and [Hvplot](https://hvplot.pyviz.org/).
 
 # II. Exploratory Data Analysis
 
@@ -46,6 +46,8 @@ For weekends and weekdays, the trends of rides in the day are almost the same, w
 
 ![fig5]({{ site.url }}{{ site.baseurl }}/assets/img/fig5.png)
 
+As the *Indego* shared bike trip duration density suggests, most of the trips’ have duration less than 180 minutes (3 hours), therefore we discard trips with longer duration (more than 3 hours).
+
 ## 2.2 Spatial Pattern
 
 In this part, we check the spatial characteristics in the following categories:
@@ -66,15 +68,19 @@ In this part, we check the spatial characteristics in the following categories:
 
 ![fig6]({{ site.url }}{{ site.baseurl }}/assets/img/fig6.png)
 
-Below are the scatter plots of the stations, we can see that they are clustered around the center city. As for the trips, a station tend to have almost the same number of start and end trips, given the high similarity shown in the plots.
+Below are the scatter plots of the stations, we can see that they are clustered around the center city. As for the trips, a station tends to have almost the same number of start and end trips, given the high similarity shown in the plots. Correspondingly, in the modeling part, we only select the number of start trips.
 
 <div id="hv-chart-3"></div>
 
 ### 2.2.2 Census demographic data
 
+In this part, we download data from [American Community Survey 5-Year Data]( American Community Survey 5-Year Data (2009-2021) (census.gov)) in Philadelphia (2021) to check the relation between the social/economical features and the shared bike demand.
+
 - Choropleth of Social/Economical Features
 
 <div id="hv-chart-2"></div>
+
+From the choropleths, we can see that the existing shared bike stations generally locate at the places where the people tend to be younger, having higher income and no car. The below 2 `hvplot` interactive charts present this point more accurately.
 
 - Chart of Median Income vs Transit Mode Selection in Philadelphia.
 
@@ -92,7 +98,7 @@ Add two new features:
 
 2. Whether the station is located within Center City.
 
-- Mean Distance to Nearest 10 Restaurants (log transformed)
+- ***Plot:*** Mean Distance to Nearest 10 Restaurants (log transformed)
 
 ![fig8]({{ site.url }}{{ site.baseurl }}/assets/img/fig8.png)
 
@@ -104,7 +110,7 @@ Add a feature that calculates the distance to the nearest intersections.
 
 ![fig9]({{ site.url }}{{ site.baseurl }}/assets/img/fig9.png)
 
-- Mean Distance to Nearest 3 Intersections (log transformed)
+- ***Plot:*** Mean Distance to Nearest 3 Intersections (log transformed)
 
 ![fig10]({{ site.url }}{{ site.baseurl }}/assets/img/fig10.png)
 
@@ -125,6 +131,8 @@ We add two new features:
 - **Check the correlation between the trip counts and the spatial lag**
 
 ![fig12]({{ site.url }}{{ site.baseurl }}/assets/img/fig12.png)
+
+From the figure, we can see that there is a linear correlation between the trip counts and the spatial lag.
 
 ### 2.2.6 Correlation Matrix
 
