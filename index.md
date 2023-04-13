@@ -22,7 +22,7 @@ The problem of re-balancing arises because the number of shared bicycles is not 
 
 In general, there are two steps in truck-based rebalancing approaches, i.e., demand prediction and station rebalancing. First, it is crucial to accurately predict the demand at each station to foresee the bike and dock availability in the future. Second, it is important to design effective strategies for truck operators to reposition bikes among stations.
 
-This project will focus on the first step of the problem by taking [***Indego***](https://www.rideindego.com/), a bike-sharing system in the Philadelphia area, as a research sample, on which we will use different models (OLS, ARIMA, Neural Networks, etc.) to make accurate demand forecasts. Indego started operation on April 23, 2015, with 125 stations and 1,000 bicycles. After 7 years of development, the function of this system has tended to be comprehensive, which is appropriate for research. In this analysis, we select a **5-week** period from **May 17** to **June 20**, **2021** for temporal/spatial analysis.
+This project will focus on the first step of the problem by taking [Indego](https://www.rideindego.com/), a bike-sharing system in the Philadelphia area, as a research sample, on which we will use different models (OLS, Random Forest, ARIMA, Neural Networks, etc.) to make accurate demand forecasts. Indego started operation on April 23, 2015, with 125 stations and 1,000 bicycles. After 7 years of development, the function of this system has tended to be comprehensive, which is appropriate for research. In this analysis, we select a **5-week** period from **May 17** to **June 20**, **2021** for temporal/spatial analysis.
 
 This section will show embedding interactive charts produced using [Altair](https://altair-viz.github.io) and [Hvplot](https://hvplot.pyviz.org/).
 
@@ -137,6 +137,73 @@ From the figure, we can see that there is a linear correlation between the trip 
 ### 2.2.6 Correlation Matrix
 
 ![fig13]({{ site.url }}{{ site.baseurl }}/assets/img/fig13.png)
+
+# III. Modeling
+
+In this section we will try several models to predict the *Indego* Shared Bike Demand. Following is the plan:
+
+## 3.1 General Demand Prediction
+
+- **OLS** Models (Base line)
+
+  - Unregularized Linear Regression
+
+  - Ridge Regression
+ 
+  - Lasso Regression
+
+  - Elastic Net Regression
+
+- **Random Forests**
+
+  - Fit a random forest model, using cross validation to optimize (some) hyperparameters;
+
+  - Find out the most important features in the random forest model;
+
+  - Compare to the baseline linear regression models.
+
+## 3.2 Time Series Prediction:
+
+Only select the station: ***Amtrak 30th Street Station***
+
+- **ARIMA**
+  
+  - To find the order of differencing(d) in ARIMA model
+
+  - To find the order of AR term (p) and MA term (q)
+
+  - Automatically build SARIMA model in python
+
+  - Data forecasting using the model created
+
+  
+- **GRU**
+
+  -	GRU architecture built on PyTorch.
+  
+  -	Generate a panel of interval 60 minutes. 
+
+  -	Split Train/Test Set ratio: **0.8**.
+
+  -	Use 3 week’s records to predict one hour’s demand.
+
+  -	Select a specific station: Amtrak 30th Street Station as an example.
+
+  -	Metrics: *MSE*: 1.96 *MAE*: 1.03 *RMSE*: 1.40 *R-Squared*: 0.17
+
+  -	Tuning hyperparameter
+
+![Figure_1]({{ site.url }}{{ site.baseurl }}/assets/img/Figure_1.png)
+
+- ***Metrics***:
+
+  - *MSE*
+
+  - *MAE*
+ 
+  - *RMSE*
+
+  - *R-Squared*
 
 
 
