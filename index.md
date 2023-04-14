@@ -46,7 +46,7 @@ For weekends and weekdays, the trends of rides in the day are almost the same, w
 
 ![fig5]({{ site.url }}{{ site.baseurl }}/assets/img/fig5.png)
 
-As the *Indego* shared bike trip duration density suggests, most of the trips’ have duration less than 180 minutes (3 hours), therefore we discard trips with longer duration (more than 3 hours).
+As the *Indego* shared bike trip duration density suggests, most of the trips’ have duration less than 180 minutes (3 hours), therefore we discard trips with longer duration (more than 3 hours). (Trips: **97435**)
 
 ## 2.2 Spatial Pattern
 
@@ -63,6 +63,8 @@ In this part, we check the spatial characteristics in the following categories:
 - **Neighboring stations**
 
 ### 2.2.1 Internal Characteristics
+
+- Active Station: **139**
 
 - Number of Docks in Each Station, Philadelphia 2021
 
