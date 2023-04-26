@@ -248,21 +248,21 @@ The basic idea of GCN is to combine the representations of nodes and their neigh
 
 # IV. Evaluation
 
-In this section, we compare the 2 neural network models. The metric we take here is ***MAE***. We have calculated it for the following two methods separatel:
+In this section, we compare the 2 neural network models. The metric we take here is **MAE**. We have calculated it for the following two methods separatel:
 
-1. ***MAE*** of all stations by time interval(1h):
+1. **MAE** of all stations by time interval(1h):
 
   - To explore the temporal pattern of MAE;
   
   <div id="hv-chart-5"></div>
   
-From the figures, we can see that for ***GRU***, **MAE** changes periodically, generally having the lowest point in the morning, while in the afternoon, the number becomes bigger, which may be resulted from the fact that people ride more bikes in the afternoon.
+From the figures, we can see that for **GRU**, **MAE** changes periodically, generally having the lowest point in the morning, while in the afternoon, the number becomes bigger, which may be resulted from the fact that people ride more bikes in the afternoon.
 
-For ***GCN***, the magnitude of the value change is not very large, basically around 0.8-1.0. However, this fact also indicates the weakness of the ***GCN*** model, even though it is stable.
+For **GCN**, the magnitude of the value change is not very large, basically around 0.8-1.0. However, this fact also indicates the weakness of the ***GCN*** model, even though it is stable.
 
 Both advantages and shortcomings of the two models are obvious. Perhaps the next step is to combine the two to see if better results can be achieved.
 
-2. ***MAE*** by each station.
+2. **MAE** by each station.
 
   - To explore the spatial pattern of MAE.
 
@@ -270,15 +270,15 @@ Both advantages and shortcomings of the two models are obvious. Perhaps the next
 
 The scatter patterns of the two models also suggest what we have discovered in the above interval MAE check. 
 
-One thing the two have in common is that they tended to have larger ***MAE*** in center city, where the stations generally have more docks and more rides which is correspondent with the above. For the accuracy, ***GRU*** performs better on most stations than ***GCN***.
+One thing the two have in common is that they tended to have larger **MAE** in center city, where the stations generally have more docks and more rides which is correspondent with the above. For the accuracy, **GRU** performs better on most stations than **GCN**.
 
 # V. Conclusion
 
 In this study, we select 35 days' data of Indego Bike trips in 2021 summer to predict the demand of the shared bike demand in Philadelphia.
 
-Based on models we have made, we found out for general demand, the distance to nearby shared bike stations and the number of trips in nearby stations serve as a significant role in the demand. Besides, for time series prediction, we use ***MAE*** as the final metric to evaluate our 3 models: ***ARIMA***, ***GRU***, ***GCN***. 
+Based on models we have made, we found out for general demand, the distance to nearby shared bike stations and the number of trips in nearby stations serve as a significant role in the demand. Besides, for time series prediction, we use **MAE** as the final metric to evaluate our 3 models: **ARIMA**, **GRU**, **GCN**. 
 
-As the ***GRU*** model has the lowest **MAE** (0.98), it outperforms the other two. We would recommend this model to the Department of Transportation for further planning, and also as a support to solve the re-balancing problem.
+As the **GRU** model has the lowest **MAE** (0.98), it outperforms the other two. We would recommend this model to the Department of Transportation for further planning, and also as a support to solve the re-balancing problem.
 
 
 
