@@ -246,7 +246,7 @@ The basic idea of GCN is to combine the representations of nodes and their neigh
 
 ![GCN_result]({{ site.url }}{{ site.baseurl }}/assets/img/GCN_result.png)
 
-# IV. Evaluation
+- Comparison
 
 In this section, we compare the 2 neural network models. The metric we take here is **MAE**. We have calculated it for the following two methods separatel:
 
@@ -272,7 +272,23 @@ The scatter patterns of the two models also suggest what we have discovered in t
 
 One thing the two have in common is that they tended to have larger **MAE** in center city, where the stations generally have more docks and more rides which is correspondent with the above. For the accuracy, **GRU** performs better on most stations than **GCN**.
 
-# V. Conclusion
+# IV.Evaluation & Conclusion
+
+## 4.1 Reasons for choosing **MAE** as the Metric
+
+Our purpose is to accurately predict the demand for shared bicycles, and then assist in solving the rebalancing problem. Compared with **R-Squard** and other indicators for judging model fit, **MAE** can more intuitively express the demand for bicycles at each station, which is also more concerned by relevant departments.
+
+## 4.2 Model Accuracy
+
+In this project, we made two kinds of predictions in different ranges: one is based on the **MAE** of the entire test period based on the site; the other is based on the time interval, the **MAE** of all the sites in a specific time interval. In particular, a case study is made on the 30th Street train station site. In general, time periods with high demand and stations with a large number of vehicles are more likely to have larger errors. Overall, the model is relatively accurate, and the **MAE** is basically maintained at around 1. But there is a problem with this model. The predicted value given by the model is in decimal form, and the start trip of each site is an integer type. When the predicted value is given, say 0.5, how to interpret this value requires further research.
+
+## 4.3 Model Improvement
+
+Among the three models, **GRU** and **GCN** perform relatively well. Here, we only discuss these two models. When **GRU** is built, time indicators are included, and when **GCN** is built, geographic information is included. Both indicators are more important for prediction. The advantages and disadvantages of the two models are also obvious. The **MAE** change of **GRU** is time-periodic and fluctuates greatly (0.2 in the morning and 1.2 in the afternoon); the error of **GCN** is relatively stable, but it has been around 1. If go one step further, we can consider combining the two models, first use **GCN** to capture geographic information, and then use **GRU** for time series prediction, so as to maximize the advantages of the two models.
+
+In addition, regarding **GCN** itself, there are also areas that can be improved. Because of the time constraints of this project, we only considered the distance between stations when constructing the adj matrix. We can calculate the historical usage (inflow or outflow) of each station in each time interval (such as 1 hour), and then calculate the correlation between each two stations as the inter-station weight in the graph (using the Pearson coefficient to calculate Correlation). The resulting graphs are then subjected to graph fusion (first normalize the adjacency matrix A of each graph, and then combine different graphs by weighted summation of the adjacency matrices of different graphs at the element level). The resulting graph may be more predictive because it contains multiple pieces of information.
+
+## 4.4 Conclusion
 
 In this study, we select 35 days' data of Indego Bike trips in 2021 summer to predict the demand of the shared bike demand in Philadelphia.
 
