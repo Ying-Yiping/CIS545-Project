@@ -6,6 +6,7 @@ altair-loader:
 hv-loader:
   hv-chart-2: ["charts/tabs.html", "500"]
   hv-chart-3: ["charts/tabs0.html", "500"]
+  hv-chart-4: ["charts/importance_plot.html", "500"]
 ---
 
 # Welcome!
@@ -146,40 +147,77 @@ In this section we will try several models to predict the *Indego* Shared Bike D
 
 ## 3.1 General Demand Prediction
 
-- **OLS** Models (Base line)
+The first part of our modeling is the general demand prediction, in which temporal features like time lags are not included, as we will use them in the latter models.
 
-  - Unregularized Linear Regression
+Aim for this part is to figure out what is(are) the most important features that affect bike share demand. First, we will use `Random Forest` and several `OLS` models to perform the prediction, then find out the best model, and draw the importance plot based on the selected model.
 
-  - Ridge Regression
+- **OLS** Models (Base line) Acccuracy:
+
+  - Unregularized Linear Regression: 0.07
+
+  - Ridge Regression: 0.17
  
-  - Lasso Regression
+  - Lasso Regression: 0.15
 
-  - Elastic Net Regression
+  - Elastic Net Regression: 0.16
 
 - **Random Forests**
 
-  - Fit a random forest model, using cross validation to optimize (some) hyperparameters;
+  - The best model with accuracy: 0.34
 
-  - Find out the most important features in the random forest model;
+  - Importance Plot:
 
-  - Compare to the baseline linear regression models.
+<div id="hv-chart-4"></div>
+
+Judging from all the five models, we can say that the random forest performs the best, and the most important feature in the model is the lagged distance from nearby stations which is the same as the plot we made in the last part.
 
 ## 3.2 Time Series Prediction:
 
 Only select the station: ***Amtrak 30th Street Station***
 
 - **ARIMA**
+
+**ARIMA (Autoregressive Integrated Moving Average)** is a popular statistical method for time series forecasting. It combines three main components: Autoregressive (AR), Moving Average (MA), and Integration (I).
+
+ARIMA models are represented as ARIMA(p, d, q), where p, d, and q are the orders of the AR, I, and MA components, respectively. Seasonal ARIMA models, known as SARIMA or SARIMAX (when including external variables), can also incorporate seasonal components to capture patterns that repeat at regular intervals, such as daily or yearly seasonality.
+
+To make accurate predictions with ARIMA models, the appropriate model order (p, d, q) and, if applicable, seasonal order need to be determined. This is typically done using techniques like grid search, stepwise search, or auto-ARIMA methods, which identify the model with the best performance based on a chosen criterion, such as the Akaike Information Criterion (AIC) or the Bayesian Information Criterion (BIC).
+
+Once the best ARIMA model is selected, it can be used to forecast future values in the time series. The model's performance can be evaluated using metrics like Mean Absolute Error (MAE), which provide insights into the accuracy of the predictions.
   
   - To find the order of differencing(d) in ARIMA model
 
+The order of differencing in ARIMA model depends on whether the time series is stationary or not. The Augmented Dickey Fuller test (`adfuller()`) can be used to check the stationarity of the series. If the p-value of the test is less than the significance level (0.05), then we reject the null hypothesis and conclude that the series is stationary. In this case, no differencing is needed (d=0). However, if the p-value is greater than 0.05, then the series is non-stationary and differencing is required.
+
+p-value we get is smaller than the significance level, we infer that the time series is stationary. Therefore, the order of differencing d is set to 0.
+
   - To find the order of AR term (p) and MA term (q)
+
+There are basically two ways to determine the optimal value of AR term (p):
+
+1. Manual selection: You can manually select the AR term (p) by plotting the autocorrelation function (ACF) and partial autocorrelation function (PACF). This requires expertise and experience.
+
+2. Automatic selection: You can use the auto_arima function in Python to automatically select the best values for the parameters p and q. The auto_arima function compares the likelihood of the model's effectiveness (which can be related to accuracy in later prediction) to select the best values for p and q.
+
+Therefore, using the auto_arima function can save time in manually selecting parameters and ensure that the selected parameters are optimal.
 
   - Automatically build SARIMA model in python
 
-  - Data forecasting using the model created
+The best-fit model is ARIMA(3, 0, 0). This means that the order of the autoregressive (AR) term is 1, the order of the difference (d) is 0, and the order of the moving average (MA) term is 3.
 
+The AIC (Abject Pool Information Criterion) value of the model is 2009.388, which is a measure of the goodness of fit of the model, and a lower AIC value usually implies a better fit.
+
+  - Data forecasting using the model created
+ 
+ *MAE*: **1.75**
+
+![0424_arima]({{ site.url }}{{ site.baseurl }}/assets/img/0424_arima.png)
   
 - **GRU**
+
+Recurrent neural networks (RNNs) are ofren leveraged to model the temporal dependency. In particular, we use Gated Recurrent Units (GRU), which is a powerful variant of RNNs overcoming gradient vanishing and gradient exploding problem effectively. Encoder-decoder structure is widely used in spatiotemporal sequence predicting tasks because it has been verified very effective. Therefore, we introduce encoder-decoder structure to build sequence to sequence architecture along with GRU units. Sequence to sequence is effective in multiple steps ahead prediction.
+
+**Gated Recurrent Unit**. Recurrent Neural Networks (RNNs) can model the dependency of time series effectively. However, the traditional RNN models have limitations for long-term prediction due to gradient vanishing and gradient exploding problems. Although Long Short-term Memory (LSTM) can address these challenges, it has the defect of more training time consumption special for complex structures. Hence, we introduce Gated Recurrent Unit (GRU), the variant of RNNs, to model the temporal dependency. Compared with LSTM, GRU model has a relatively simple structure with fewer parameters and faster training speed.
 
   -	GRU architecture built on PyTorch.
   
@@ -189,23 +227,21 @@ Only select the station: ***Amtrak 30th Street Station***
 
   -	Use 3 week’s records to predict one hour’s demand.
 
-  -	Select a specific station: Amtrak 30th Street Station as an example.
+  -	Metrics: *MAE*: **0.98**
 
-  -	Metrics: *MSE*: 1.96 *MAE*: 1.03 *RMSE*: 1.40 *R-Squared*: 0.17
+![0424_gru]({{ site.url }}{{ site.baseurl }}/assets/img/0424_gru.png)
 
-  -	Tuning hyperparameter
+- **GCN**
 
-![Figure_1]({{ site.url }}{{ site.baseurl }}/assets/img/Figure_1.png)
+In spatial correlation modeling, current works usually employ grid to divide the urban area, converting urban data to Euclidean domains, and then use Convolutional Neural Networks (CNN) to model spatial correlation. However, in our problem, the spatial distribution of bike stations is irregular and in non-Euclidean domains. Hence, we introduce graph structure to model the spatial distribution of bike stations and exploit Graph Convolutional Networks (GCN) to model spatial correlation.
 
-- ***Metrics***:
+**Graph Convolutional Network(GCN)**, is a deep learning model used to handle graph-structured data. Compared to traditional neural networks, GCN can directly process graph-structured data such as social networks, knowledge graphs, chemical molecules, etc.
 
-  - *MSE*
+The basic idea of GCN is to combine the representations of nodes and their neighboring nodes and update the node representations through convolutional operations, thereby achieving feature learning and representation of the entire graph. GCN is a method based on spectral graph theory, which decomposes the ***adjacency matrix*** of the graph into eigenvalues to obtain the Laplacian matrix of the graph, and thus converts the convolutional operation into matrix multiplication. This method can effectively capture topological structure information between nodes and achieve graph feature learning and representation.
 
-  - *MAE*
- 
-  - *RMSE*
+  -	Metrics: *MAE*: **1.45**
 
-  - *R-Squared*
+![GCN_result]({{ site.url }}{{ site.baseurl }}/assets/img/GCN_result.png)
 
 
 
