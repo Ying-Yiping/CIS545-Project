@@ -7,8 +7,8 @@ hv-loader:
   hv-chart-2: ["charts/tabs.html", "500"]
   hv-chart-3: ["charts/tabs0.html", "500"]
   hv-chart-4: ["charts/importance_plot.html", "500"]
-  hv-chart-5: ["charts/Interval_MAE_hvplot (4).html", "500"]
-  hv-chart-6: ["charts/MAE_comparison.html", "500"]
+  hv-chart-5: ["charts/MAE_comparison.html", "500"]
+  hv-chart-6: ["charts/MAE.html", "500"]
   
 ---
 
